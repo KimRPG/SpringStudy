@@ -1,11 +1,11 @@
-package com.jpa.mapping.service;
+package com.jpa.mapping.v1.service;
 
-import com.jpa.mapping.model.Student;
-import com.jpa.mapping.model.University;
-import com.jpa.mapping.model.request.StudentCreationRequest;
-import com.jpa.mapping.model.request.UniversityCreationRequest;
-import com.jpa.mapping.repository.StudentRepository;
-import com.jpa.mapping.repository.UniversityRepository;
+import com.jpa.mapping.v1.model.Student;
+import com.jpa.mapping.v1.model.University;
+import com.jpa.mapping.v1.model.request.StudentCreationRequest;
+import com.jpa.mapping.v1.model.request.UniversityCreationRequest;
+import com.jpa.mapping.v1.repository.StudentRepository;
+import com.jpa.mapping.v1.repository.UniversityRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
