@@ -1,4 +1,4 @@
-package com.jpa.mapping.model.request;
+package com.jpa.mapping.v1.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
