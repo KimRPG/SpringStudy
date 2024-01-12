@@ -1,6 +1,6 @@
-package com.jpa.mapping.repository;
+package com.jpa.mapping.v1.repository;
 
-import com.jpa.mapping.model.Student;
+import com.jpa.mapping.v1.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
