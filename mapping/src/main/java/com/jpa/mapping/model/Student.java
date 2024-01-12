@@ -1,4 +1,4 @@
-package com.jpa.mapping.entity;
+package com.jpa.mapping.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
