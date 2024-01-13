@@ -1,5 +1,7 @@
 package com.jpa.mapping.v2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -18,8 +20,9 @@ public class Stone {
 
     private String stoneName;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     @JoinColumn(name = "pocket_id")
+    @JsonManagedReference
     private Pocket pocket;
 
     @Builder

@@ -1,5 +1,6 @@
 package com.jpa.mapping.v2.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class Pocket {
     private String pocketColor;
 
     @OneToMany(mappedBy = "pocket", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Stone> stones = new ArrayList<>();
 
     @Builder

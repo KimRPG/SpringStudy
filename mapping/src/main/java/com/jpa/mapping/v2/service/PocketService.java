@@ -13,6 +13,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,11 +34,17 @@ public class PocketService {
         if (pocket.isEmpty()) {
             throw new EntityNotFoundException("pocket not found");
         }
-        PocketResponseDTO hi =EntityToDto.categoryToCategoryDTO(pocket.get());
         Stone stone = new Stone(dto.getStoneName(), pocket.get());
         Stone  stone1=stoneRepository.save(stone);
         return EntityToDto.bookToBookResponseDTO(stone1);
+    }
 
+    public List<PocketResponseDTO> readPockets(){
+        return EntityToDto.pocketResponseDTOs(pocketRepository.findAll());
+    }
+
+    public List<StoneResponseDTO> readStones(){
+        return EntityToDto.bookToBookResponseDTOs(stoneRepository.findAll());
     }
 
 }
