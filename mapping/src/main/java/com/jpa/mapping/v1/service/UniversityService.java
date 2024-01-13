@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,7 +47,15 @@ public class UniversityService {
     }
 
     public List<University> readUniversity(){
+
         return universityRepository.findAll();
+    }
+
+    public List<Student> readOneUniversity(Long id){
+        University university = universityRepository.findById(id).get();
+
+        return university.getStudent();
+
     }
 
 

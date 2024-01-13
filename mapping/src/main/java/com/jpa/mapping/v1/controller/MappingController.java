@@ -37,4 +37,9 @@ public class MappingController {
         return ResponseEntity.ok(universityService.createStudent(request));
     }
 
+    @GetMapping("/university/{id}")
+    public ResponseEntity<List<Student>> readUniversityStudents(@PathVariable("id") Long id){
+        return ResponseEntity.ok(universityService.readOneUniversity(id));
+    }
+
 }
