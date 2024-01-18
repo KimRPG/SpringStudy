@@ -18,8 +18,7 @@ public class Human {
     @Column(name = "clothes_id")
     private int id;
     private String name;
-    @Column(columnDefinition = "json")
-    private String yourJsonData;
+
 
     @OneToMany(mappedBy = "human", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Clothes> clothes;
