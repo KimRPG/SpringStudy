@@ -5,6 +5,9 @@ spring:
       client:
         registration:
           google:
+            client-name: google
             client-id: 389340275294-6j62b94lm631uo0ec49fo074m2hk8k0u.apps.googleusercontent.com
             client-secret: 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
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+            authorization-grant-type: authorization_code
             scope: profile,email
