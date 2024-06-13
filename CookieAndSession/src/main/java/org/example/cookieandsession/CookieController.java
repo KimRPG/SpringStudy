@@ -11,28 +11,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CookieController {
-    @PostMapping("/cookie")
+
+    @GetMapping("/cookie") //cookie 설정
     public void setCookie(HttpServletResponse response) {
-        Cookie cookie = new Cookie("user", "hs"); // Name-Value
-        cookie.setPath("/");
-        cookie.setSecure(true);
-        cookie.setAttribute("SameSite", "None");
-        cookie.setMaxAge(30 );
-        cookie.setHttpOnly(true);
+        Cookie cookie = new Cookie("user", "hs"); // Name-Value로 쿠키를 만듦
+        cookie.setPath("/"); //
+        //cookie.setSecure(true); //https 사용한다면 켜주세요
+        cookie.setAttribute("SameSite", "Lax"); //이거는 나중에 설명
+        cookie.setMaxAge(30*60); //이거는 몇 초동안 쿠키를 유지할 것인지
+        cookie.setHttpOnly(true); // JavaScript에서 쿠키에 접근할 수 없도록 함
         response.addCookie(cookie);
     }
 
-    @GetMapping("/cookie")
+    @GetMapping("/get_cookie")
     public String getCookie(@CookieValue String user) {
         return user;
     }
 
     @PostMapping("/delete_cookie")
     public void deleteCookie(HttpServletResponse response) {
-        Cookie myCookie = new Cookie("user", null);
-        myCookie.setMaxAge(0); // 쿠키의 expiration 타임을 0으로 하여 없앤다.
-        myCookie.setPath("/"); // 모든 경로에서 삭제 됬음을 알린다.
-        response.addCookie(myCookie);
+        Cookie cookie = new Cookie("user", null);
+        cookie.setMaxAge(0); // 쿠키의 expiration 타임을 0으로 하여 없앤다.
+        cookie.setPath("/"); // 모든 경로에서 삭제 됬음을 알린다.
+        response.addCookie(cookie);
     }
 
     @PostMapping("/session")

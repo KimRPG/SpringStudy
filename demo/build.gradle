@@ -22,12 +22,10 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compileOnly('jakarta.enterprise:jakarta.enterprise.cdi-api:3.0.0')
-    compileOnly('jakarta.ws.rs:jakarta.ws.rs-api:3.0.0')
-    compileOnly('jakarta.servlet:jakarta.servlet-api:5.0.0')
-    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    compileOnly 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 
 test {
