@@ -68,7 +68,9 @@ public class SlackMessage {
                 .imageUrl("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2J4cDY4czAxaGFyb3p3YTA5bXFvZ3FoeXhvd2pod3FscmpxNmhjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g5R9dok94mrIvplmZd/giphy.webp")
                 .fields(List.of(
                         generateSlackField("생일 축하", name),
-                        generateSlackField("축하 메시지", "오늘 하루도 멋지게 보내세요! 🎉")
+                        generateSlackField("축하 메시지",
+                                "⋆⸜⊹₊ \uD835\uDC07\uD835\uDC1A\uD835\uDC29\uD835\uDC29\uD835\uDC32 \uD835\uDC01\uD835\uDC22\uD835\uDC2B\uD835\uDC2D\uD835\uDC21\uD835\uDC1D\uD835\uDC1A\uD835\uDC32 ¨̮⑅*⸝⋆\n" +
+                                "( * ॑꒳ ॑*)ﾉ\"┌iiii┐ヾ(* ॑꒳ ॑* )")
                 ))
                 .build();
     }
