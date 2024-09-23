@@ -28,26 +28,14 @@ public class SlackMessage {
 
     @Value("${webhook-uri}")
     private String webhookUrl;
-//
-//    LayoutBlock layoutBlock = new LayoutBlock() {
-//        @Override
-//        public String getType() {
-//            return null;
-//        }
-//
-//        @Override
-//        public String getBlockId() {
-//            return null;
-//        }
-//    };
 
-    public void sendSlackMessage(String name) {
+    public void sendSlackMessage(String name, String part, String now) {
         try {
 
             slackClient.send(webhookUrl, payload(p -> p
                     .text("🎉 *Happy Birthday, " + name + "!* 🎉")
                     .attachments(
-                            List.of(generateSlackAttachment(name, "#36a64f"))
+                            List.of(generateSlackAttachment(part,name, "#36a64f", now))
                     )
             ));
         } catch (IOException slackError) {
@@ -56,12 +44,13 @@ public class SlackMessage {
     }
 
     // attachment 생성 메서드
-    private Attachment generateSlackAttachment(String name, String color) {
-        String requestTime = DateTimeFormatter.ofPattern("MM-dd").format(LocalDateTime.now());
+    private Attachment generateSlackAttachment(String part,String name, String color, String requestTime) {
+        String message = String.format("오늘은 %s의 %s님의 특별한 날입니다! 🎉", part, name);
+
         return Attachment.builder()
                 .color(color)  // 왼쪽 띠의 색
                 .title(requestTime + " - 🎂 생일 축하 🎂")
-                .text("오늘은 " + name + "님의 특별한 날입니다! 🎉")
+                .text(message)
                 .footer("생일 축하 메시지 | Slack Bot")
                 .footerIcon("https://image.flaticon.com/icons/png/512/888/888879.png")
                 .ts(String.valueOf(System.currentTimeMillis() / 1000))

@@ -24,6 +24,10 @@ dependencies {
     implementation 'com.slack.api:slack-api-client:1.29.0'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation("com.slack.api:bolt:1.43.1")
+    implementation("com.slack.api:bolt-servlet:1.43.1")
+    implementation("com.slack.api:bolt-jetty:1.43.1")
+    implementation("org.slf4j:slf4j-simple:1.7.36")
 }
 
 tasks.named('test') {
